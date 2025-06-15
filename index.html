@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Mani Kiran Bandi | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    nav {
+      background: #1e293b;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #93c5fd;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: linear-gradient(to right, #1e293b, #334155);
+      color: white;
+    }
+    header img {
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .project-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .project-card h3 {
+      margin-top: 0;
+    }
+    .project-card a {
+      color: #3b82f6;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .skills span {
+      background: #e2e8f0;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .resume {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .resume a {
+      background: #3b82f6;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <img src="./Images/20240710_191443.jpg" alt="Sai Mani Kiran Bandi" />
+    <h1>Sai Mani Kiran Bandi</h1>
+    <p>Backend Developer | Cloud Enthusiast | Graduate Student at EMU</p>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I am a Computer Science graduate student at Eastern Michigan University with a passion for backend development, API design, and cloud deployment. My focus lies in building scalable applications using modern technologies like Spring Boot, Node.js, and AWS. I enjoy solving complex problems and continuously learning new technologies to grow as a backend engineer.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>SHU E-Commerce Platform</h3>
+      <p><strong>Stack:</strong> Node.js, Express, CouchDB, Stripe, AWS EC2</p>
+      <p>Developed a backend e-commerce platform with user authentication, admin dashboard, and secure payments.</p>
+      <a href="https://github.com/yourusername/shu-ecommerce" target="_blank">GitHub</a>
+      <a href="https://saimanikiranbandi.com/Ecommerce-couchdb/Login/login.html" target="_blank">Live Demo</a>
+    </div>
+    <div class="project-card">
+      <h3>Cyber Stream Security Tool</h3>
+      <p><strong>Stack:</strong> Spring Boot, REST API, Java</p>
+      <p>Designed a cybersecurity tool integrating port scanning, packet sniffing, and system-level exploit simulation.</p>
+      <a href="https://github.com/yourusername/cyber-stream" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Java</span>
+      <span>Python</span>
+      <span>Node.js</span>
+      <span>Spring Boot</span>
+      <span>AWS EC2</span>
+      <span>REST APIs</span>
+      <span>MySQL</span>
+      <span>CouchDB</span>
+      <span>Git</span>
+      <span>Postman</span>
+    </div>
+  </section>
+
+  <section id="resume" class="resume">
+    <a href="/resume/SaiManiKiranBandi_Backend_Resume.pdf" target="_blank">Download My Resume</a>
+  </section>
+
+  <footer id="contact">
+    <p>Contact: sbandi5@emich.edu | LinkedIn: <a href="https://linkedin.com/in/sai-mani-kiran-bandi-66b18a21a">sai-mani-kiran-bandi</a></p>
+  </footer>
+</body>
+</html>
