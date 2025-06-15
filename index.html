@@ -20,8 +20,12 @@
       background: #1e293b;
       padding: 1rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       gap: 2rem;
+    }
+    nav h3{
+      color: #fff;
+      font-weight: bold;
     }
     nav a {
       color: #fff;
@@ -122,13 +126,23 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <nav style="
+    background: linear-gradient(to right, #1e293b, #334155);
+    padding: 1.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+    <h3 style="margin: 0; font-size: 1.3rem;"><a href="./index.html">My Portfolio</a></h3>
+    <div style="display: flex; gap: 2rem; align-items: center;">
+      <a href="#about" style="transition: color 0.3s ease;">About</a>
+      <a href="#projects" style="transition: color 0.3s ease;">Projects</a>
+      <a href="#skills" style="transition: color 0.3s ease;">Skills</a>
+      <a href="#resume" style="transition: color 0.3s ease;">Resume</a>
+      <a href="#contact" style="transition: color 0.3s ease;">Contact</a>
+    </div>
+  </nav></nav>
 
   <header class="hero">
     <img src="./Images/20240710_191443.jpg" alt="Sai Mani Kiran Bandi" />
