@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #181a20;
+            --card-bg: #23272f;
+            --accent: #00bfae;
+            --text: #eaeaea;
+            --text-secondary: #b0b3b8;
+            --nav-bg: #23272f;
+            --nav-hover: #2c313a;
+        }
+
+        /* Universal box-sizing to avoid unexpected overflows */
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text);
+            min-height: 100vh;
+            /* Prevent horizontal scrolling on narrow screens */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+        }
+
+        nav.nav-div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        ul.list-items {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.list-items li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        /* Ensure list items wrap gracefully to avoid horizontal overflow */
+        li {
+            word-wrap: break-word;
+        }
+
+        ul.list-items li a:hover {
+            background: var(--nav-hover);
+            color: var(--accent);
+        }
+
+        .images_nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .images_nav img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0.9) invert(0.8);
+            transition: filter 0.2s, transform 0.2s;
+            border-radius: 50%;
+        }
+
+        .images_nav a:hover img {
+            filter: brightness(1.2) invert(0.5) sepia(1) hue-rotate(120deg);
+            transform: scale(1.15);
+        }
+
+        .hero {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 3rem;
+            margin: 2rem 0;
+            max-width: 100%;
+            padding: 0 1rem;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            max-width: 90vw;
+            max-height: 90vw;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text {
+            max-width: 600px;
+            flex: 1 1 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .hero-text h2 {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .projects-button {
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            nav.nav-div {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        .work-experience {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+
+        .work-experience h1 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .work {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .work section {
+            border: #00bfae solid 2px;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            min-width: 0;
+        }
+
+        .Education {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+
+        .university-details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-align: left;
+            font-weight: 500;
+            justify-content: flex-start;
+            border: #181a20 solid 2px;
+            padding: 1rem;
+        }
+
+        .university-details section {
+            flex: 1 1 calc(50% - 1.5rem);
+            min-width: 280px;
+            border: #00bfae solid 2px;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .Education h1 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .Gpa-div {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--nav-bg);
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            .university-details {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .Projects {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+
+        .project-Details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .project-Details section {
+            flex: 1 1 calc(50% - 1.5rem);
+            min-width: 280px;
+            border: #00bfae solid 2px;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .Projects h1 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .tech-stack {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-buttons {
+            background: var(--nav-bg);
+            color: var(--text);
+            border: 1px solid;
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            cursor: default;
+        }
+
+        .tech-buttons:hover {
+            background: var(--accent);
+            color: var(--bg-color);
+            border-color: var(--accent);
+        }
+
+        .GitLink {
+            margin-top: 1rem;
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .GitLink a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .GitLink:hover {
+            background: var(--nav-hover);
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+        @media (max-width: 700px) {
+            .project-Details {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        .contact-section {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+        .contact-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        .contact-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .contact-info, .contact-form {
+            flex: 1 1 320px;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info h2, .contact-form h2 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0.9) invert(0.8);
+        }
+        .contact-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .contact-form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #444c56;
+            border-radius: 6px;
+            background: var(--nav-bg);
+            color: var(--text);
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 5px var(--accent);
+        }
+        .send-btn {
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .send-btn:hover {
+            background: var(--nav-hover);
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+        .send-icon {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0.9) invert(0.8);
+        }
+        @media (max-width: 700px) {
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header-div">
+        <nav class="nav-div">
+            <ul class="list-items">
+                <li><a href="#about">About</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="images_nav">
+                <a href="https://linkedin.com/in/sai-mani-kiran-bandi-66b18a21a" target="_blank">
+                    <img src="./Images/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/sbandi5" target="_blank">
+                    <img src="./Images/github.png" alt="GitHub">
+                </a>
+                <a href="./Resume/SaiManiKiranBandiResume.pdf" target="_blank">
+                    <img src="./Images/resume.png" alt="Resume">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero" id="about">
+        <img src="./Images/20240710_191443.jpg" alt="HeadShot" class="profile-img">
+        <div class="hero-text">
+            <h1>Hello, I'm <br><span class="highlight">Sai Mani Kiran Bandi</span></h1>
+            <h2>Software Developer | Backend Developer</h2>
+            <p>
+                I am currently pursuing my M.S. in Computer Science at Eastern Michigan University.
+                I have a strong foundation in data structures, algorithms, and software development principles.
+                I am passionate about building efficient and scalable backend systems and have experience working with
+                various programming languages and frameworks.
+                I am excited to contribute my skills and knowledge to a dynamic team and continue learning and growing
+                as a developer.
+            </p>
+            <button class="projects-button" onclick="location.href='#projects'">View My Projects</button>
+        </div>
+    </div>
+    <!-- Wprk-Experience Section -->
+    <div class="work-experience" id="work-experience">
+        <h1>Work Experience</h1>
+        <div class="work">
+            <section>
+                <strong>Graduate Assistant</strong><br>
+                <p>
+                    Eastern Michigan University<br>
+                    Aug 2024 - Present<br>
+                </p>
+                <ul>
+                    <li>Provided technical support for lab systems, ensuring operational stability, user access, and
+                        software configuration. </li>
+                    <li>Assisted students and faculty with troubleshooting Java applications, debugging code, and
+                        resolving technical issues in real time. </li>
+                    <li>Delivered one-on-one and group training sessions on object-oriented programming, RESTful APIs,
+                        multi-threading, and debugging
+                        techniques. </li>
+                    <li>Collaborated with faculty to optimize lab processes, improve user experience, and maintain
+                        system documentation. </li>
+                    <li>Collaborated with faculty to provide lab support and user training, reinforcing
+                        post-implementation support practices and promoting.
+                </ul>
+
+            </section>
+        </div>
+    </div>
+    <!-- Education Section -->
+    <div class="Education" id="education">
+        <h1>Education</h1>
+        <div class="university-details">
+            <section>
+                Master's in Computer Science<br>
+                Eastern Michigan University, Ypsilanti, MI<br>
+                Aug 2024 - May 2026 (Expected)<br>
+                <div class="Gpa-div">GPA: 3.92/4.0</div>
+            </section>
+            <section>
+                Bachelor's in Electronics and Communication Engineering<br>
+                Bharath Institute of Higher Education and Research, Chennai, India<br>
+                Aug 2018 - May 2022<br>
+                <div class="Gpa-div">GPA: 3.54/4.0</div>
+            </section>
+        </div>
+    </div>
+    <!-- Skills Section -->
+    <div class="Education" id="skills">
+        <h1>Skills</h1>
+        <div class="university-details">
+            <section>
+                <strong>Programming Languages:</strong> Java, Python, JavaScript, SQL, C++, HTML, CSS<br><br>
+                <strong>Frameworks & Libraries:</strong> Spring Boot, Node.js, Express.js, React<br><br>
+                <strong>Databases:</strong> MySQL, PostgreSQL, CouchDB, Cassandra<br><br>
+                <strong>Cloud Platforms:</strong> AWS (EC2)<br><br>
+                <strong>Tools & Technologies:</strong> Git, Docker, RESTful APIs, Agile Methodologies, Uml Design
+            </section>
+        </div>
+
+    </div>
+    <!-- Projects Section -->
+    <div class="Projects" id="projects">
+        <h1>Projects</h1>
+        <div class="project-Details">
+            <section>
+                <strong>SHU E-Commerce Platform</strong><br>
+                <p>
+                    Developed a comprehensive backend for an e-commerce platform using Node.js, Express, and CouchDB.
+                    Implemented user authentication, product management, and order processing features. Integrated
+                    Stripe
+                    for secure payment handling and deployed the application on AWS EC2 for scalability and reliability.
+                </p>
+                <div class="tech-stack">
+                    <button class="tech-buttons">HTML</button>
+                    <button class="tech-buttons">CSS</button>
+                    <button class="tech-buttons">JavaScript</button>
+                    <button class="tech-buttons">Node.js</button>
+                    <button class="tech-buttons">Express</button>
+                    <button class="tech-buttons">CouchDB</button>
+                    <button class="tech-buttons">Stripe</button>
+                    <button class="tech-buttons">AWS EC2</button>
+                </div>
+                <button class="GitLink"><a href="https://github.com/sbandi5/Ecommerce-couchdb"
+                        target="_blank">Code</a></button>
+            </section>
+            <section>
+                <strong>Cyber Stream Security Tool</strong><br>
+                <p>
+                    Designed and implemented a cybersecurity tool using Spring Boot that integrates multiple security
+                    functionalities such as port scanning, packet sniffing, and system-level exploit simulation. The
+                    tool
+                    provides a RESTful API for easy interaction and can be used for educational purposes to understand
+                    network security concepts.
+                </p>
+                <div class="tech-stack">
+                    <button class="tech-buttons">Java</button>
+                    <button class="tech-buttons">Spring Boot</button>
+                    <button class="tech-buttons">REST API</button>
+                    <button class="tech-buttons">Packet Sniffing</button>
+                    <button class="tech-buttons">Port Scanning</button>
+                    <button class="tech-buttons">Exploit Simulation</button>
+                </div>
+                <button class="GitLink"><a href="https://github.com/sbandi5/network-tool"
+                        target="_blank">Code</a></button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h1 class="contact-title">Get In Touch</h1>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>Feel free to reach out to me directly or use the contact form. I'm always open to discussing new
+                    projects, opportunities, or partnerships.</p>
+                <div class="contact-item">
+                    <img src="./Images/Email.png" alt="Email" class="contact-icon">
+                    <div>
+                        <span class="contact-label">Email</span><br>
+                        <a href="mailto:bandisaimani@gmail.com" class="contact-link">bandisaimani@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="./Images/phone.png" alt="Phone" class="contact-icon">
+                    <div>
+                        <span class="contact-label">Phone</span><br>
+                        <a href="tel:+17349854467" class="contact-link">(734) 985-4467</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="./Images/location.png" alt="Location" class="contact-icon">
+                    <div>
+                        <span class="contact-label">Location</span><br>
+                        Ypsilanti, MI
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <h2>Send Me a Message</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required></textarea>
+                <button type="submit" class="send-btn" onclick="SendEmail()">
+                    <img src="./Images/send.png" alt="Send" class="send-icon"> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Sai Mani Kiran Bandi. All rights reserved. | <a href="#about">Back to Top</a></p>
+    </footer>
+
+</body>
+
+</html>
