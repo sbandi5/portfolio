@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Sai Mani Kiran Bandi — Backend Software Engineer</title>
+    <meta name="description" content="Backend Software Engineer specializing in Java, Kotlin, and Spring Boot microservices. Currently building credential-verification systems at Connex AI.">
     <style>
         :root {
             --bg-color: #181a20;
@@ -206,6 +207,26 @@
             min-width: 0;
         }
 
+        .work section strong {
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .work section ul {
+            padding-left: 1.2rem;
+            margin: .5rem 0 0;
+        }
+
+        .work section ul li {
+            margin-bottom: .4rem;
+            line-height: 1.5;
+        }
+
+        .work section ul li strong {
+            font-size: inherit;
+            color: var(--accent);
+        }
+
         /* Education + Skills blocks */
         .university-details {
             display: grid;
@@ -254,6 +275,24 @@
             background: var(--card-bg);
             box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
             min-width: 0;
+        }
+
+        .project-Details section strong {
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .project-Details section p strong {
+            color: var(--accent);
+            font-size: inherit;
+        }
+
+        .role-tag {
+            display: inline-block;
+            margin-left: .5rem;
+            font-size: .85rem;
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .tech-stack {
@@ -477,48 +516,52 @@
     </header>
 
     <div class="hero" id="about">
-        <img src="./Images/20240710_191443.jpg" alt="HeadShot" class="profile-img">
+        <img src="./Images/20240710_191443.jpg" alt="Sai Mani Kiran Bandi headshot" class="profile-img">
         <div class="hero-text">
             <h1>Hello, I'm <br><span class="highlight">Sai Mani Kiran Bandi</span></h1>
-            <h2>Software Developer | Backend Developer</h2>
+            <h2>Backend Software Engineer | Java · Kotlin · Spring Boot · AWS</h2>
             <p>
-                I am currently pursuing my M.S. in Computer Science at Eastern Michigan University.
-                I have a strong foundation in data structures, algorithms, and software development principles.
-                I am passionate about building efficient and scalable backend systems and have experience working with
-                various programming languages and frameworks.
-                I am excited to contribute my skills and knowledge to a dynamic team and continue learning and growing
-                as a developer.
+                I'm a Backend Software Engineer currently building production microservices at Connex AI, where I designed a credential-verification system that collapsed a <strong style="color: var(--accent);">2–4 week manual process into under 1 hour</strong> for up to 500 concurrent users. I love debugging complex production issues (recently cut a Redis-related API latency from 30s to 600ms), designing secure REST APIs, and shipping tested, containerized code in Agile teams. Currently completing my M.S. in Computer Science at Eastern Michigan University.
             </p>
             <button class="projects-button" onclick="location.href='#projects'">View My Projects</button>
         </div>
     </div>
-    <!-- Wprk-Experience Section -->
+
+    <!-- Work Experience Section -->
     <div class="work-experience" id="work-experience">
         <h1>Work Experience</h1>
         <div class="work">
             <section>
-                <strong>Graduate Assistant</strong><br>
+                <strong>Backend Developer Intern</strong><br>
                 <p>
-                    Eastern Michigan University<br>
-                    Aug 2024 - Present<br>
+                    Connex AI · Remote<br>
+                    Sep 2025 – Present<br>
                 </p>
                 <ul>
-                    <li>Provided technical support for lab systems, ensuring operational stability, user access, and
-                        software configuration. </li>
-                    <li>Assisted students and faculty with troubleshooting Java applications, debugging code, and
-                        resolving technical issues in real time. </li>
-                    <li>Delivered one-on-one and group training sessions on object-oriented programming, RESTful APIs,
-                        multi-threading, and debugging
-                        techniques. </li>
-                    <li>Collaborated with faculty to optimize lab processes, improve user experience, and maintain
-                        system documentation. </li>
-                    <li>Collaborated with faculty to provide lab support and user training, reinforcing
-                        post-implementation support practices and promoting.
+                    <li>Built a credential-verification microservice from the ground up using <strong>Kotlin and Spring Boot</strong>, integrating third-party verification APIs to automate user validation and database updates.</li>
+                    <li>Reduced credential verification turnaround from <strong>2–4 weeks (manual) to under 1 hour</strong>, supporting up to <strong>500 concurrent members</strong> per batch through optimized async processing.</li>
+                    <li>Debugged and resolved a Redis cache connectivity failure that was blocking API responses, <strong>cutting average endpoint latency from 30 seconds to 600ms</strong> and restoring real-time delivery.</li>
+                    <li>Designed and implemented <strong>15+ REST API endpoints</strong> powering integration with external verification providers and internal business systems.</li>
+                    <li>Secured admin access to logs and credential data with <strong>JWT-based authentication</strong>; wrote <strong>JUnit and Mockito</strong> tests covering core workflows to catch regressions pre-release.</li>
+                    <li>Authored the <strong>Dockerfile</strong> to containerize the service for consistent local, staging, and cloud Linux deployments; used <strong>GitHub Copilot and Claude Code</strong> to accelerate Agile sprint delivery.</li>
                 </ul>
+            </section>
 
+            <section>
+                <strong>Graduate Assistant</strong><br>
+                <p>
+                    Eastern Michigan University · Ypsilanti, MI<br>
+                    Aug 2024 – Dec 2025<br>
+                </p>
+                <ul>
+                    <li>Mentored undergraduate CS students 1-on-1 on <strong>Java, REST APIs, and full-stack debugging</strong>, helping them work through assignments and capstone projects on schedule.</li>
+                    <li>Guided students through <strong>object-oriented programming, software design patterns, and problem-solving</strong> approaches across multiple course sections.</li>
+                    <li>Supported <strong>Linux-based development environments</strong>, resolving tooling, build, and runtime issues so students could focus on coursework instead of setup.</li>
+                </ul>
             </section>
         </div>
     </div>
+
     <!-- Education Section -->
     <div class="Education" id="education">
         <h1>Education</h1>
@@ -526,52 +569,54 @@
             <section>
                 Master's in Computer Science<br>
                 Eastern Michigan University, Ypsilanti, MI<br>
-                Aug 2024 - May 2026 (Expected)<br>
-                <div class="Gpa-div">GPA: 3.92/4.0</div>
+                Aug 2024 – Apr 2026 (Expected)<br>
+                <div class="Gpa-div">GPA: 3.91/4.0</div>
             </section>
             <section>
                 Bachelor's in Electronics and Communication Engineering<br>
                 Bharath Institute of Higher Education and Research, Chennai, India<br>
-                Aug 2018 - May 2022<br>
-                <div class="Gpa-div">GPA: 3.54/4.0</div>
+                Aug 2018 – May 2022<br>
+                <div class="Gpa-div">GPA: 3.56/4.0</div>
             </section>
         </div>
     </div>
+
     <!-- Skills Section -->
     <div class="Education" id="skills">
         <h1>Skills</h1>
         <div class="university-details">
             <section>
-                <strong>Programming Languages:</strong> Java, Python, JavaScript, SQL, C++, HTML, CSS<br><br>
-                <strong>Frameworks & Libraries:</strong> Spring Boot, Node.js, Express.js, React<br><br>
-                <strong>Databases:</strong> MySQL, PostgreSQL, CouchDB, Cassandra<br><br>
-                <strong>Cloud Platforms:</strong> AWS (EC2)<br><br>
-                <strong>Tools & Technologies:</strong> Git, Docker, RESTful APIs, Agile Methodologies, Uml Design
+                <strong>Languages:</strong> Java, Kotlin, Python, JavaScript, SQL, HTML, CSS<br><br>
+                <strong>Backend:</strong> Spring Boot, Spring Security, Spring Data JPA, Node.js, Express, REST APIs, Microservices<br><br>
+                <strong>Frontend:</strong> React, JavaScript, HTML, CSS<br><br>
+                <strong>Databases:</strong> MySQL, PostgreSQL, Redis, CouchDB<br><br>
+                <strong>Cloud & DevOps:</strong> AWS EC2, Docker, Linux, Git, Maven, CI/CD Fundamentals<br><br>
+                <strong>Testing:</strong> JUnit 5, Mockito, Postman, Swagger<br><br>
+                <strong>Security:</strong> JWT Authentication, Role-Based Access Control (RBAC), AES-256 Encryption<br><br>
+                <strong>Concepts & Tools:</strong> OOP, MVC, API Design, DSA, SDLC, Agile/Scrum, UML Design, GitHub Copilot, Claude Code
             </section>
         </div>
-
     </div>
+
     <!-- Projects Section -->
     <div class="Projects" id="projects">
         <h1>Projects</h1>
         <div class="project-Details">
             <section>
-                <strong>SHU E-Commerce Platform</strong><br>
+                <strong>SHU E-Commerce Platform</strong><span class="role-tag">· Team Lead</span><br>
                 <p>
-                    Developed a comprehensive backend for an e-commerce platform using Node.js, Express, and CouchDB.
-                    Implemented user authentication, product management, and order processing features. Integrated
-                    Stripe
-                    for secure payment handling and deployed the application on AWS EC2 for scalability and reliability.
+                    <strong>Led a student team as Team Lead</strong> on a full-stack e-commerce class project, owning task breakdown, sprint planning, and on-time delivery across every milestone. Drove implementation of core features including <strong>product search, shopping cart, order booking, and end-to-end Stripe payment integration</strong>. Built the backend with Node.js, Express, and CouchDB; deployed to AWS EC2 using Docker. Improved team velocity through code reviews and pair-debugging sessions that kept teammates aligned and unblocked.
                 </p>
                 <div class="tech-stack">
-                    <button class="tech-buttons">HTML</button>
-                    <button class="tech-buttons">CSS</button>
-                    <button class="tech-buttons">JavaScript</button>
                     <button class="tech-buttons">Node.js</button>
                     <button class="tech-buttons">Express</button>
                     <button class="tech-buttons">CouchDB</button>
                     <button class="tech-buttons">Stripe</button>
                     <button class="tech-buttons">AWS EC2</button>
+                    <button class="tech-buttons">Docker</button>
+                    <button class="tech-buttons">JavaScript</button>
+                    <button class="tech-buttons">HTML</button>
+                    <button class="tech-buttons">CSS</button>
                 </div>
                 <button class="GitLink"><a href="https://github.com/sbandi5/Ecommerce-couchdb"
                         target="_blank">Code</a></button>
@@ -579,19 +624,15 @@
             <section>
                 <strong>Cyber Stream Security Tool</strong><br>
                 <p>
-                    Designed and implemented a cybersecurity tool using Spring Boot that integrates multiple security
-                    functionalities such as port scanning, packet sniffing, and system-level exploit simulation. The
-                    tool
-                    provides a RESTful API for easy interaction and can be used for educational purposes to understand
-                    network security concepts.
+                    Built a <strong>Spring Boot</strong> backend inspired by network monitoring and packet-analysis systems, exposing APIs for scan execution, reporting, and real-time monitoring. Implemented <strong>multithreaded processing</strong> to parallelize scan execution and applied <strong>MVC + layered architecture</strong> for testability and clean separation of concerns.
                 </p>
                 <div class="tech-stack">
                     <button class="tech-buttons">Java</button>
                     <button class="tech-buttons">Spring Boot</button>
                     <button class="tech-buttons">REST API</button>
+                    <button class="tech-buttons">Multithreading</button>
                     <button class="tech-buttons">Packet Sniffing</button>
                     <button class="tech-buttons">Port Scanning</button>
-                    <button class="tech-buttons">Exploit Simulation</button>
                 </div>
                 <button class="GitLink"><a href="https://github.com/sbandi5/network-tool"
                         target="_blank">Code</a></button>
@@ -605,9 +646,7 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h2>Contact Information</h2>
-                <p>Feel free to reach out to me directly <!--or use the contact form !-->. I'm always open to discussing
-                    new
-                    projects, opportunities, or partnerships.</p>
+                <p>Feel free to reach out to me directly. I'm always open to discussing new projects, opportunities, or partnerships.</p>
                 <div class="contact-item">
                     <img src="./Images/Email.png" alt="Email" class="contact-icon">
                     <div>
@@ -630,24 +669,12 @@
                     </div>
                 </div>
             </div>
-            <!-- <form class="contact-form">
-                <h2>Send Me a Message</h2>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required></textarea>
-                <button type="submit" class="send-btn" onclick="SendEmail()">
-                    <img src="./Images/send.png" alt="Send" class="send-icon"> Send Message
-                </button>
-            </form> -->
         </div>
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>© 2025 Sai Mani Kiran Bandi. All rights reserved. | <a href="#about">Back to Top</a></p>
+        <p>© 2025 Sai Mani Kiran Bandi. All rights reserved. | <a href="#about" style="color: var(--accent); text-decoration: none;">Back to Top</a></p>
     </footer>
 
 </body>
